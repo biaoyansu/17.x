@@ -73,6 +73,8 @@ window.Validator = function (val, custom) {
   }
 
   me.validate_length = function (greater, length) {
+    if (!val) return false;
+
     var val_length = val.toString().length;
     length = parseInt(length);
 

@@ -15,18 +15,8 @@
     <form autocomplete="off">
         <div class="input-wrap">
             <div>
-                <label>你的性别</label>
-                <label class="dib"><input data-rule="equal:male" name="gender" value="female" type="radio">女</label>
-                <label class="dib"><input data-rule="equal:male" name="gender" value="male" type="radio">男</label>
-                <div id="input-error-gender" class="input-error">
-                    您的选择有误
-                </div>
-            </div>
-        </div>
-        <div class="input-wrap">
-            <div>
                 <label>姓名</label>
-                <input name="name" class="input-control" data-rule="maxlength:6" type="text">
+                <input name="name" class="input-control" data-rule="minlength:2|maxlength:6" type="text" autofocus>
                 <div id="input-error-name" class="input-error">
                     姓名格式有误
                 </div>
@@ -60,6 +50,12 @@
                 <div id="input-error-password" class="input-error">
                     密码长度需在6-24位之间
                 </div>
+            </div>
+        </div>
+        <div class="input-wrap">
+            <div>
+                <label>性别</label>
+                <label class="dib"><input type="radio" checked>男</label>
             </div>
         </div>
         <div class="input-wrap submit">

@@ -1,6 +1,8 @@
 $(function () {
   "use strict";
-  var input = {};
+  var input = [];
+  var $form = $('form');
+
 
   init(); // Boot entry.
 
@@ -16,15 +18,19 @@ $(function () {
         return new Input(item);
       })
   }
-});
 
-// var usernameValidator =
-//   new Validator('143', {
-//     nullable: true,
-//     maxlength: 12,
-//     minlength: 2,
-//     numeric: 2,
-//     pattern: /^[a-zA-Z]+/,
-//   })
-//
-// console.log('usernameValidator.isValid()', usernameValidator.is_valid());
+  $form.submit(function (e) {
+    var valid = true;
+    e.preventDefault();
+    var i;
+
+    for (i = 0; i < input.length; i++) {
+      input[i].dirty = true;
+      if (!input[i].validate())
+        valid = false;
+    }
+
+    if (valid)
+      alert('注册成功！');
+  })
+});

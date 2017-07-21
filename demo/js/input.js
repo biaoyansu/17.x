@@ -12,11 +12,13 @@ $(function () {
       me.validator = new Validator(me.val, rule);
       valid = me.validator.is_valid();
 
-      if (!valid && me.val) {
+      if (!valid && me.dirty) {
         $input_error.slideDown(150);
       } else {
         $input_error.slideUp(150);
       }
+
+      return valid;
     }
 
     init();
@@ -30,12 +32,13 @@ $(function () {
     function listen() {
       function on_change() {
         me.val = $(this).val();
+        if (me.val)
+          me.dirty = true;
         me.validate();
       }
 
       me.$el
         .keyup(on_change)
-        .click(on_change)
     }
 
     function store_el() {
@@ -62,9 +65,6 @@ $(function () {
         var item = r[i].split(':');
         rule[item[0]] = item[1];
       }
-
-      console.log('rule:', rule);
-
     }
   }
 })
