@@ -5,15 +5,17 @@ $(function () {
     var valid = false;
     var rule = {};
     var $input_error;
+    var name;
 
     me.validate = function (custom) {
       rule = $.extend({}, rule, custom);
       me.validator = new Validator(me.val, rule);
       valid = me.validator.is_valid();
-      if (!valid) {
-        $input_error.show();
+
+      if (!valid && me.val) {
+        $input_error.slideDown(150);
       } else {
-        $input_error.hide();
+        $input_error.slideUp(150);
       }
     }
 
@@ -26,10 +28,14 @@ $(function () {
     }
 
     function listen() {
-      me.$el.on('keyup', function () {
+      function on_change() {
         me.val = $(this).val();
         me.validate();
-      })
+      }
+
+      me.$el
+        .keyup(on_change)
+        .click(on_change)
     }
 
     function store_el() {
@@ -39,7 +45,8 @@ $(function () {
         me.$el = $(el);
       }
 
-      $input_error = me.$el.next('.input-error')
+      name = me.$el.attr('name');
+      $input_error = $('#input-error-' + name);
     }
 
 

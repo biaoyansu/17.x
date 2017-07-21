@@ -5,70 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>相亲吗，序员？</title>
-    <style>
-        body {
-            color: #5a3718;
-            font-family: sans-serif;
-            background: #fffaf2;
-        }
-
-        label {
-            display: block;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        img {
-            max-width:100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .input-error {
-            display: none;
-        }
-
-        .header {
-            margin: 30px 0;
-            width: 500px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="container">
     <div class="header container">
         <img src="img/blind.png" alt="相亲吗，序员？">
     </div>
-    <form>
+    <form autocomplete="off">
         <div class="input-wrap">
             <div>
-                <div>
-                    <label>姓</label>
-                    <input data-rule="maxlength:5" type="text" value="阿贡">
-                    <ul class="input-error">
-                        <li>姓名格式有误</li>
-                    </ul>
-                </div>
-                <div>
-                    <label>名</label>
-                    <input type="text" value="呆那儿多摸尸体">
-
+                <label>你的性别</label>
+                <label class="dib"><input data-rule="equal:male" name="gender" value="female" type="radio">女</label>
+                <label class="dib"><input data-rule="equal:male" name="gender" value="male" type="radio">男</label>
+                <div id="input-error-gender" class="input-error">
+                    您的选择有误
                 </div>
             </div>
-
         </div>
         <div class="input-wrap">
-            <label>用户名</label>
-            <input type="text">
-            <ul class="input-error">
-                <li>用户名格式有误</li>
-            </ul>
+            <div>
+                <label>姓名</label>
+                <input name="name" class="input-control" data-rule="maxlength:6" type="text">
+                <div id="input-error-name" class="input-error">
+                    姓名格式有误
+                </div>
+            </div>
+        </div>
+        <div class="input-wrap">
+            <div>
+                <label>用户名</label>
+                <input name="username" class="input-control" data-rule="minlength:4|maxlength:12|pattern:^[a-zA-Z0-9]*$"
+                       type="text">
+                <div id="input-error-username" class="input-error">
+                    用户名格式有误
+                </div>
+            </div>
+        </div>
+        <div class="input-wrap">
+            <div>
+                <label>年龄</label>
+                <input name="age" class="input-control" data-rule="min:18"
+                       type="text">
+                <div id="input-error-age" class="input-error">
+                    年龄不可小于18岁
+                </div>
+            </div>
+        </div>
+        <div class="input-wrap">
+            <div>
+                <label>密码</label>
+                <input name="password" class="input-control" data-rule="minlength:6|maxlength:24"
+                       type="password">
+                <div id="input-error-password" class="input-error">
+                    密码长度需在6-24位之间
+                </div>
+            </div>
+        </div>
+        <div class="input-wrap submit">
+            <button type="submit">注册</button>
         </div>
     </form>
 </div>

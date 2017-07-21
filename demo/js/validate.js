@@ -11,9 +11,6 @@ window.Validator = function (val, custom) {
   /* 通过自定义规则覆盖扩充初始规则 */
   rule = $.extend({}, rule, custom);
 
-  console.log('custom:', custom);
-  
-  
   var result = {
     valid: {},
     invalid: {},
@@ -26,24 +23,21 @@ window.Validator = function (val, custom) {
         return true;
     }
 
-    console.log('rule:', rule);
-    
-    
     for (var key in rule) {
       if (key == 'nullable')
         continue;
 
-      
-      
       if (!me['validate_' + key]())
         return false;
     }
-
     return true;
   }
 
   me.validate_pattern = function () {
-    return rule.pattern.test(val)
+    var pattern = new RegExp(rule.pattern)
+    console.log('pattern:', pattern);
+
+    return pattern.test(val)
   }
 
   me.validate_nullable = function () {
@@ -52,20 +46,22 @@ window.Validator = function (val, custom) {
     return false;
   }
 
-  me.validate_maxlength = function () {
-    console.log('1:', 1);
+  me.validate_equal = function () {
+    return val == rule.equal;
+  }
 
+  me.validate_maxlength = function () {
     return me.validate_length(false, rule.maxlength);
   }
 
   me.validate_max = function () {
     var v = parseFloat(val);
-    return v < rule.max;
+    return v <= rule.max;
   }
 
   me.validate_min = function () {
     var v = parseFloat(val);
-    return v > parseFloat(rule.min);
+    return v >= parseFloat(rule.min);
   }
 
   me.validate_numeric = function () {
@@ -80,9 +76,9 @@ window.Validator = function (val, custom) {
     var val_length = val.toString().length;
     length = parseInt(length);
 
-    if (greater && val_length > length) {
+    if (greater && val_length >= length) {
       return true;
-    } else if (!greater && val_length < length) {
+    } else if (!greater && val_length <= length) {
       return true;
     }
 
