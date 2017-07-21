@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相亲吗，序员？</title>
+    <style>
+        body {
+            color: #5a3718;
+            font-family: sans-serif;
+            background: #fffaf2;
+        }
+
+        label {
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            max-width:100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-error {
+            display: none;
+        }
+
+        .header {
+            margin: 30px 0;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header container">
+        <img src="img/blind.png" alt="相亲吗，序员？">
+    </div>
+    <form>
+        <div class="input-wrap">
+            <div>
+                <div>
+                    <label>姓</label>
+                    <input data-rule="maxlength:5" type="text" value="阿贡">
+                    <ul class="input-error">
+                        <li>姓名格式有误</li>
+                    </ul>
+                </div>
+                <div>
+                    <label>名</label>
+                    <input type="text" value="呆那儿多摸尸体">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="input-wrap">
+            <label>用户名</label>
+            <input type="text">
+            <ul class="input-error">
+                <li>用户名格式有误</li>
+            </ul>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
