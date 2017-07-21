@@ -51,7 +51,7 @@ img {
 
 form {
     background: #000;
-    padding: 20px 15px;
+    padding: 20px;
     background: #fff4ea;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -78,8 +78,9 @@ button, .input-control {
     background: #f1e8de;
     width: 100%;
     color: #5a3718;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #cdb49f;
+    /*border-bottom: 2px solid #fff;*/
+    /*border-top: 2px solid #cdb49f;*/
+    border:2px solid #fff4ea;
 }
 
 .input-control:focus {
@@ -119,7 +120,6 @@ button[type="submit"]:hover {
     font-weight: bold;
     margin-bottom: 5px;
     margin-top: 20px;
-    margin-left: 5px;
 }
 
 .input-wrap label:first-child {
