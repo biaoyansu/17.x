@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="wrap wrap-sm">
+    <div class="header">
+        <h1>Yo.</h1>
+    </div>
+    <div class="form">
+        <form>
+            <div class="input-wrap">
+                <label>姓名</label>
+                <input data-rule="min:18|maxlength:10|minlength:2|nullable:false|numeric:false" type="text"
+                       class="input-control">
+                <div class="input-error">姓名格式有误</div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="js/validator.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

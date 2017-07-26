@@ -34,10 +34,8 @@ window.Validator = function (val, custom) {
   }
 
   me.validate_pattern = function () {
-    var pattern = new RegExp(rule.pattern)
-    console.log('pattern:', pattern);
-
-    return pattern.test(val)
+    var pattern = new RegExp(rule.pattern);
+    return pattern.test(val);
   }
 
   me.validate_nullable = function () {

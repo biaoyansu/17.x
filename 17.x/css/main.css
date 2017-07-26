@@ -1,0 +1,38 @@
+* {
+    background: rgba(0, 0, 0, .1);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.header {
+    margin-top: 30px;
+}
+
+.wrap {
+    margin: 0 auto;
+    max-width: 1080px;
+}
+
+.wrap-sm {
+    max-width: 450px;
+}
+
+.input-wrap {
+    margin-bottom: 10px;
+}
+
+.input-control {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    color: #fff;
+    width: 100%;
+}
+
+.input-error {
+    color: #56000a;
+}
