@@ -2,18 +2,34 @@ $(function () {
   'use strict';
 
   /*选中页面中所有的input[data-rule]*/
+  var $inputs = $('[data-rule]')
+    , $form = $('#signup')
+    , inputs = [];
 
-  /*解析每一个input的验证规则*/
+  $inputs.each(function (index, node) {
+    /*解析每一个input的验证规则*/
+    var tmp = new Input(node);
+    inputs.push(tmp);
+  })
 
-  /*验证*/
-  var validator = new Validator('abcdef', {
-    maxlength: 5,
-  });
+  $form.on('submit', function (e) {
+    e.preventDefault();
+    $inputs.trigger('blur');
 
-  // var result = validator.validate_max();
-  // var result = validator.validate_min();
-  var result = validator.validate_maxlength();
-  console.log('result:', result);
+    for (var i = 0; i < inputs.length; i++) {
+      var item = inputs[i];
+      var r = item.validator.is_valid();
+      if (!r) {
+        alert('invalid');
+        return;
+      }
+    }
 
+    alert('注册成功');
+  })
+
+  function signup() {
+    // $.post('/api/signup', {...})
+  }
 });
 
